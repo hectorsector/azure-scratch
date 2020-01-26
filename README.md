@@ -131,4 +131,6 @@ ___
 
 Not sure it's needed for the course, but I figured it may be fun to demo this every now and then :smile:
 
+*For it to work the **prerequisites** still need to be completed*
+
 
