@@ -71,11 +71,6 @@ The first secret that needs to be configured is the user/learners `AZURE_SUBSCRI
   }
 ```
 
-**Creating the user/learners `PACKAGES_TOKEN`:**
-
-1. The user/learner needs to create a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) that has `read: packages` and `write:packages` permissions.  *The token DOES NOT need a broader scope than that*.
-2. Place the value of that token in a secret named `PACKAGES_TOKEN`
-
 ---
 
 ### Second step: provision environment
