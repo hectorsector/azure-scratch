@@ -114,6 +114,8 @@ You can however create a newer version of a package as long as the repository/pa
 
 **For example, I cannot create another docker image named `woo-hoo` in ANY repository other than the `azure-test` reposoitory I created while figuring this out.**
 
+:computer: The `Deploy web app container` step in this workflow (second to the last step in the entire file) produces output in the **Actions tab** that contains the URL to visit so the user/learner can see their app deployed.  This can also be found from within the Azure UI.
+
 ---
 
 ### Final step: destroy the Azure resources
