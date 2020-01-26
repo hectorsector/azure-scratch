@@ -125,6 +125,10 @@ Have the learner edit and make the following changes to the `destroy-azure.yml` 
   - As always, if the initial creation of the pull request doesn't trigger the workflow, make an arbitrary push to the `destory-env` branch to trigger it.
   - This workflow takes about 2.5 minutes to run fully
   
-  
+___
+
+**For fun I included a CI/CD Souffle workflow that does everything but destroy the deployment (in traditional DevOps order)**
+
+Not sure it's needed for the course, but I figured it may be fun to demo this every now and then :smile:
 
 
