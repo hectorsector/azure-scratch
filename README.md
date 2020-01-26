@@ -5,15 +5,15 @@
 **Setup that the learner needs to do OUTSIDE of the course repository**
 
 - Every user/learner will need an Azure account, which they can create [here](https://azure.microsoft.com/en-us/free/search/?&ef_id=EAIaIQobChMIsYvv96eg5wIVyh6tBh0tYQqKEAAYASAAEgJ6WPD_BwE:G:s&OCID=AID2000128_SEM_bp6n8E3v&MarinID=bp6n8E3v_287547098344_azure%20free%20trial_e_c__44568975817_kwd-298648055668&lnkd=Google_Azure_Brand&gclid=EAIaIQobChMIsYvv96eg5wIVyh6tBh0tYQqKEAAYASAAEgJ6WPD_BwE)
-- Once the accoutn is created the user/learner will need to create a new [subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription)
-  - This process **requires** billimg information, however all of the resources we use will fall under the FREE tier for the first 12 months after initial account creation
+- Once the account is created the user/learner will need to create a new [subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription)
+  - This process **requires** billing information, however all of the resources we use will fall under the FREE tier for the first 12 months after initial account creation
 - Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on a local machine
 
 **Additional setup required for the existing course repository**
 
 - Place the three workflow files located in *this* repository into the `.github/` directory on the `master` branch of the *course template* repository.
   - We can't place these in the `.github/workflows` directory becuase they wont copy if we do.  This is desired for their use-case however, we will have the user/learner add them to the `.github/workflows` directory when they need to be used.
-- Two branches need to be created.  These will be used for automatice environment provisioning and tear-down.
+- Two branches need to be created.  These will be used for automatic environment provisioning and tear-down.
   - `create-env`
   - `destroy-env`
   
@@ -59,7 +59,7 @@ The first secret that needs to be configured is the user/learners `AZURE_SUBSCRI
   # Replace {subscription-id} with the same id stored in AZURE_SUBSCRIPTION_ID
 ```
                             
-2. Make sure the user/learner adds their real `subcription id` in place of the one shown above.
+2. Make sure the user/learner adds their real `subscription id` in place of the one shown above.
 3. This command returns an object to the terminal similar to what is shown below.  Place that **entire** object as the value for the `AZURE_CREDENTIALS` secret in the course repository.
 ```
   {
@@ -80,7 +80,7 @@ The first secret that needs to be configured is the user/learners `AZURE_SUBSCRI
 
 ### Second step: provision environment
 
-Have the learner edit make the following changes to the `provision-azure.yml` workflow.
+Have the learner edit and make the following changes to the `provision-azure.yml` workflow.
 
 1. Move `provision-workflow.yml` into the `.github/workflows` folder
 2. Edit `AZURE_WEBAPP_NAME` of the file by replacing `USERNAME` with the user/learners **GitHub handle**
@@ -110,7 +110,7 @@ This workflow contains the steps necessary to deploy the containerized tic-tac-t
 
 :warning: There is a huge "gotcha" that exists with this GitHub Packages.  No one can reuse a package name across repositories, for that reason the user MUST name the `DOCKER_IMAGE_NAME` in this workflow something they have not used in a different repository.
 
-You can however create a newer version of a package as long as the repository/packagename stays the same.  For our purposes the user/learner gets a repositiory to take the course in which shouldn't change so this woudln't be a problem for users/learners taking this course a second or third time.
+You can however create a newer version of a package as long as the repository/packagename stays the same.  For our purposes the user/learner gets a repository to take the course in which shouldn't change so this woudln't be a problem for users/learners taking this course a second or third time.
 
 **For example, I cannot create another docker image named `woo-hoo` in ANY repository other than the `azure-test` reposoitory I created while figuring this out.**
 
@@ -120,9 +120,9 @@ You can however create a newer version of a package as long as the repository/pa
 
 ### Final step: destroy the Azure resources
 
-In a final step help the user/learner tear down the Azure resources we create throughout this course.  This prevents any accidental charges in the even the user/learner is outside of their FREE tier usage.
+In a final step help the user/learner tear down the Azure resources we create throughout this course.  This prevents any accidental charges in the event the user/learner is outside of their FREE tier usage.
 
-Have the learner edit make the following changes to the `destroy-azure.yml` workflow.
+Have the learner edit and make the following changes to the `destroy-azure.yml` workflow.
 
 1. Move `destory-workflow.yml` into the `.github/workflows` folder
 2. Commit those changes to a branch named `destroy-env` and create a new pull request
