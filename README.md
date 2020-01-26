@@ -79,7 +79,7 @@ Have the learner edit and make the following changes to the `provision-azure.yml
 
 1. Move `provision-workflow.yml` into the `.github/workflows` folder
 2. Edit `AZURE_WEBAPP_NAME` of the file by replacing `USERNAME` with the user/learners **GitHub handle**
-```
+```yaml
   #################################################
   ### USER PROVIDED VALUES ARE REQUIRED BELOW   ###
   #################################################
