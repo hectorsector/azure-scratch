@@ -1,0 +1,27 @@
+name: Destroy Azure environment
+
+on:
+  push:
+    branches:
+      - "destroy-env"
+
+env:
+  AZURE_RESOURCE_GROUP: cd-with-actions
+
+jobs:
+  Setup-Azure-Resources:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Destroy Azure environment
+        if: success()
+        run: |
+          az group delete --name ${{env.AZURE_RESOURCE_GROUP}} --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}} --yes
