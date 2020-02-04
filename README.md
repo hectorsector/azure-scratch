@@ -1,6 +1,6 @@
 # Adding optional Azure content
 
-### Prerequisites
+### Prerequisites #test
 
 **Setup that the learner needs to do OUTSIDE of the course repository**
 
